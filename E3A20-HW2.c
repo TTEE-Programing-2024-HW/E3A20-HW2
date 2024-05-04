@@ -66,4 +66,41 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 			fflush(stdin);
 			scanf("%c",&sw);
 			switch(sw)
-
+            {
+				case 'A':                          /*§@·~2 part 3:­Y¨Ï¥ÎªÌ¿é¤J¡¥A¡¦©Î¡¥a¡¦¡A«h²M°£¿Ã¹õ¡A¨Ã­n¨D¿é¤J¤@­Ó¡¥a¡¦¨ì¡¥n¡¦ªº¦r¤¸ch*/
+				case 'a':
+					system("CLS");
+					restart_a:
+					printf("½Ð¿é¤J¤@­Ó¦r¤¸(a~n)\n");
+					fflush(stdin);
+				    scanf("%c",&e);
+				    fflush(stdin);
+				    r=e;  
+				    p=e;  
+				    
+					if(e>='a'&&e<='n')             /*®Ú¾Ú¿é¤J­ÈÅã²{¤@ª½¨¤¤T¨¤§Î*/ 
+					{
+					    for(int i=0;i<=(r-97);i++)
+					    {
+					        p=i;
+                            for(int n=1;n<=(r-97)-i;n++)
+					        {
+					            printf(" ");
+					        }
+					        for(int j=0;j<=i;j++)
+					        {  
+					            printf("%c",e-p);
+					            p--;                 
+					        }
+					        printf("\n");
+                        }
+					}
+					else                           /*­Ych¤£¦b¡¥a¡¦¦Ü¡¥n¡¦°Ï¶¡¡A«h¥X²{Äµ§i°T®§¨Ã­n¨D­«·s¿é¤Jch*/
+					{
+						printf("¡¶ ¿é¤J¿ù»~,½Ð­«·s¿é¤J!\n");
+						goto restart_a;
+					}
+						system("pause");           /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/ 
+						system("cls");
+						goto menu;
+ 
