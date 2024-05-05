@@ -157,4 +157,10 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 
     system("pause");
 	system("cls");
+    
+
+	
+	system("pause");
+	return 0;                                    /*¨ç¼Æ¦^¶Ç¾ã¼Æ0,¦¹¼Æ­È¥Ñ¨t²Î±µ¦¬*/ 
+} 
 
