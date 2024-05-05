@@ -103,4 +103,29 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 						system("pause");           /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/ 
 						system("cls");
 						goto menu;
- 
+                case 'B':                          /*§@·~2 part 4:­Y¨Ï¥ÎªÌ¿é¤J¡¥B¡¦©Î¡¥b¡¦¡A­n¨D¨Ï¥ÎªÌ¿é¤J¤@­Ó1¦Ü9ªº¾ã¼Æn*/
+				case 'b':
+				restart_b:
+					printf("½Ð¿é¤J¤@­Ó¼Æ¦r(1~9):");	
+					scanf("%d",&m);
+					if(m>=1&&m<=9);                 /*®Ú¾Ú¿é¤J­È²£¥Í1*1¦Ün*nªº¤E¤E­¼ªkªí*/
+					{
+					    for(int a=1;a<=m;a++)
+						{
+						    for(int b=1;b<=m;b++)
+							{
+						        printf("%d*%d=%d ",a,b,a*b);
+					        }
+					        printf("n");
+					    }
+				    }
+				    else                          /*­Yn¤£¦b1¦Ü9¡A«h¥X²{Äµ§i°T®§¨Ã­n¨D­«·s¿é¤Jn*/
+					{
+					    printf("¡¶ ¿é¤J¿ù»~,½Ð­«·s¿é¤J!\n");
+					    printf("\a");
+					    goto restart_b;
+				    }
+				system("pause");                  /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/
+				system("CLS");
+				goto menu;
+
