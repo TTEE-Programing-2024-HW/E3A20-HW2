@@ -128,4 +128,33 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 				system("pause");                  /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/
 				system("CLS");
 				goto menu;
+                case 'C':                         /*§@·~2 part 5:­Y¨Ï¥ÎªÌ¿é¤J¡¥C¡¦©Î¡¥c¡¦¡A¦b¿Ã¹õ¤W¿é¥X¡¥Continue? (y/n)¡¦¸ß°Ý¬O­n­«·s¿é¤J¡H*/
+				case 'c':
+					restart_c:
+					printf("Continue?(y/n)");
+					fflush(stdin);
+					scanf("%c",&c);
+					if(c=='y'||c=='Y')            /*­Y¨Ï¥ÎªÌ¿é¤J¡¥Y¡¦©Î¡¥y¡¦,«h¦^¨ì¥D¿ï³æ*/
+					{
+						system("CLS");
+						goto menu;
+					}
+					if(c=='n' || c=='N')          /*­Y¨Ï¥ÎªÌ¿é¤Jªº¬O¡¥N¡¦©Î¡¥n¡¦¡C«hµ²§ôµ{¦¡¦^¨ì§@·~¨t²Î*/
+					{						
+						return 0;
+					}
+					else                          /*­Y¬O¿é¤J¨ä¥LÁä¡A«h¥X²{¿ù»~°T®§¨Ã­n¨D­«·s¿é¤J*/
+					{
+						printf("¡¶ ¿é¤J¿ù»~,½Ð­«·s¿é¤J!\n");
+						goto restart_c;
+					}
+				default:                          /*­Y¬O¿é¤J«D¡¥A¡¦©Î¡¥a¡¦¡¥B¡¦©Î¡¥b¡¦¡¥C¡¦©Î¡¥c¡¦¡A«h¥X²{¿ù»~°T®§¨Ã­n¨D­«·s¿é¤J*/ 
+					printf("¡¶ ¿é¤J¿ù»~,½Ð­«·s¿é¤J!\n");
+					system("pause");
+					system("CLS");
+					goto menu;
+		}
+
+    system("pause");
+	system("cls");
 
