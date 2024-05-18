@@ -109,8 +109,9 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 				system("pause");                    /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/
 				system("cls");
 				goto menu;
-            case 'B':
-            case 'b': {
+				
+                case 'B':
+                case 'b': {
                 system("CLS");
                 int numSeats;
                 printf("»Ý­n¦h¤Ö®y¦ì (1-4)? ");
@@ -205,3 +206,45 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                 system("cls");
                 break;
             }
+            
+            case 'C':
+            case 'c': {
+                system("CLS");
+                int row, col;
+                char input[5];
+                int valid = 1;
+
+                while (1) {
+                	// ´£¥Ü¨Ï¥ÎªÌ¿é¤J®y¦ì¿ï¾Ü
+                    printf("½Ð¿é¤J®y¦ì¿ï¾Ü¡]¨Ò¦p¡G1-2¡A2-9¡^¡G ");
+                    fgets(input, sizeof(input), stdin);
+                    // ¸ÑªR¿é¤Jªº®y¦ì
+                    if (sscanf(input, "%d-%d", &row, &col) != 2 || row < 1 || row > 9 || col < 1 || col > 9 || seat[row - 1][col - 1] != '-') {
+                    	// ¦pªG¿é¤J®æ¦¡¿ù»~©Î®y¦ì¤w³Q¿ï¾Ü¡AÅã¥Ü¿ù»~°T®§
+                        printf("µL®Äªº¿é¤J©Î®y¦ì¤w³Q¦û¥Î¡C½Ð¦A¸Õ¤@¦¸¡C\n");
+                    } else {
+                    	// ¦pªG¿é¤J¥¿½T¡A¼Ð°O®y¦ì¬° '@'
+                        seat[row - 1][col - 1] = '@';
+                        break;
+                    }
+                }
+                
+                 // Åã¥Ü®y¦ìªí
+                displaySeats(seat);
+                printf("«ö¥ô·NÁä½T»{±zªº¿ï¾Ü¨Ãªð¦^¥Dµæ³æ¡C\n");
+                getchar();
+
+                for (i = 0; i < 9; i++) {
+                    for (j = 0; j < 9; j++) {
+                        if (seat[i][j] == '@') {
+                            seat[i][j] = '*';
+                        }
+                    }
+                }
+
+                system("cls");
+                break;
+            }
+
+
+            
