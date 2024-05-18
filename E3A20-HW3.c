@@ -66,4 +66,47 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 			fflush(stdin);
 			scanf("%c",&sw);
 			                                        /*§@·~3 part 3:¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/
+            char seat [9][9];                       
+			for(i=0;i<9;i++)                        /*Åã¥Ü9*9ªº¹w³]®y¦ì*/ 
+			{
+				for(j=0;j<9;j++)
+				{
+					seat[i][j]='-';	 
+				}
+					
+			} 
+			for(i=0;i<9;i++)                        /*¥ý°²³]¹w©w®y¦ì¬°²Ä¤@¦C¥þ³¡¥[¤W²Ä¤G¦C²Ä¤@­Ó*/
+			{
+				seat[0][i]='*'; 
+			}
+			seat[1][0]='*';
+	        
+	        for(i=0;i<9;i++)
+	        {
+	            
+	            for(j=0;j<9;j++)                    /*¨úÀH¾÷ÅÜ¼Æµ¹m©Mk,¨Ã¥æ´«seat[i][j]©Mseat[m][k]*/ 
+				{
+					int m=rand()%9,k=rand()%9;
+					char tmp;
+					tmp=seat[i][j];
+					seat[i][j]=seat[m][k];
+					seat[m][k]=tmp; 
+				}	
+			}
+			switch(sw)
+			{
+				case 'A':                           /*­Y¨Ï¥ÎªÌ¿é¤J'A'©Î'a'¡A«hÅã¥Ü¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/ 
+				case 'a': 
+			    system("CLS");
+				for(i=0;i<9;i++)
+				{
+					for(j=0;j<9;j++)
+					{
+						printf("%c",seat[i][j]);	 
+					}
+					printf("\n");
+				} 
+				system("pause");                    /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/
+				system("cls");
+				goto menu;
 
