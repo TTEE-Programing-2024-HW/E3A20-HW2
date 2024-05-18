@@ -65,6 +65,20 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 			printf("½Ð¿é¤J¤@­Ó¿ï¶µ:");              /*­n¨D¨Ï¥ÎªÌ¿é¤J¤@­Ó¦r¤¸(¦p¥D¿ï³æ©Ò¥Ü)*/
 			fflush(stdin);
 			scanf("%c",&sw);
+			
+			void displaySeats(char seat[][9]) 
+			{
+                int i, j;
+                for (i = 0; i < 9; i++) {
+                    for (j = 0; j < 9; j++) {
+                        printf("%c", seat[i][j]);
+            }
+                printf("\n");
+            }
+            }
+
+			
+			
 			                                        /*§@·~3 part 3:¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/
             char seat [9][9];                       
 			for(i=0;i<9;i++)                        /*Åã¥Ü9*9ªº¹w³]®y¦ì*/ 
@@ -275,6 +289,7 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 		    }	
 	system("pause");
 	system("cls");
-
+	return 0;                                    /*¨ç¼Æ¦^¶Ç¾ã¼Æ0,¦¹¼Æ­È¥Ñ¨t²Î±µ¦¬*/ 
+} 
 
             
