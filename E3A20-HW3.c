@@ -109,4 +109,99 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 				system("pause");                    /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/
 				system("cls");
 				goto menu;
+            case 'B':
+            case 'b': {
+                system("CLS");
+                int numSeats;
+                printf("»Ý­n¦h¤Ö®y¦ì (1-4)? ");
+                scanf("%d", &numSeats);
+                getchar(); // ¦Y±¼´«¦æ²Å¸¹
 
+                if (numSeats < 1 || numSeats > 4) {
+                    printf("µL®Äªº®y¦ì¼Æ¶q¡Cªð¦^¥Dµæ³æ\n");
+                    system("pause");
+                    system("cls");
+                    break;
+                }
+
+                int found = 0;
+                int startRow = -1, startCol = -1;
+
+                // ¹Á¸Õ§ä¨ì¦X¾Aªº®y¦ì¦w±Æ
+                for (i = 0; i < 9 && !found; i++) {
+                    for (j = 0; j < 9 - numSeats + 1 && !found; j++) {
+                        int k;
+                        for (k = 0; k < numSeats; k++) {
+                            if (seat[i][j + k] != '-') break;
+                        }
+                        if (k == numSeats) {
+                            startRow = i;
+                            startCol = j;
+                            found = 1;
+                        }
+                    }
+                }
+                // ¦pªG¨S§ä¨ì¡A¥B»Ý¨D¬O4­Ó®y¦ì¡A¹Á¸Õ§ä¬Û¾Fªº¨â±Æ 
+                if (!found && numSeats == 4) {
+                    for (i = 0; i < 8 && !found; i++) {
+                        for (j = 0; j < 9 - 2 + 1 && !found; j++) {
+                            if (seat[i][j] == '-' && seat[i][j + 1] == '-' &&
+                                seat[i + 1][j] == '-' && seat[i + 1][j + 1] == '-') {
+                                startRow = i;
+                                startCol = j;
+                                found = 1;
+                            }
+                        }
+                    }
+                }
+                // §ä¨ì¦X¾Aªº®y¦ì 
+                if (found) {
+                    if (numSeats < 4) {
+                        for (i = 0; i < numSeats; i++) {
+                            seat[startRow][startCol + i] = '@';
+                        }
+                    } else {
+                        seat[startRow][startCol] = '@';
+                        seat[startRow][startCol + 1] = '@';
+                        seat[startRow + 1][startCol] = '@';
+                        seat[startRow + 1][startCol + 1] = '@';
+                    }
+
+                    displaySeats(seat);
+                    char response;
+                    printf("§A¹ï³o­Ó¦w±Æº¡·N¶Ü¡H (y/n): ");
+                    response = getchar();
+                    getchar(); // ¦Y±¼´«¦æ²Å¸¹
+                    
+                    // ¦pªGº¡·N¡A±N '@' ´À´«¬° '*' 
+                    if (response == 'y' || response == 'Y') {
+                        if (numSeats < 4) {
+                            for (i = 0; i < numSeats; i++) {
+                                seat[startRow][startCol + i] = '*';
+                            }
+                        } else {
+                            seat[startRow][startCol] = '*';
+                            seat[startRow][startCol + 1] = '*';
+                            seat[startRow + 1][startCol] = '*';
+                            seat[startRow + 1][startCol + 1] = '*';
+                        }
+                    } else {
+                        if (numSeats < 4) {
+                            for (i = 0; i < numSeats; i++) {
+                                seat[startRow][startCol + i] = '-';
+                            }
+                        } else {
+                            seat[startRow][startCol] = '-';
+                            seat[startRow][startCol + 1] = '-';
+                            seat[startRow + 1][startCol] = '-';
+                            seat[startRow + 1][startCol + 1] = '-';
+                        }
+                    }
+                } else {
+                    printf("©êºp¡A¨S¦³§ä¨ì¦X¾Aªº®y¦ì¡C\n");
+                }
+
+                system("pause");
+                system("cls");
+                break;
+            }
