@@ -95,8 +95,8 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 			}
 			switch(sw)
 			{
-				case 'A':                           /*­Y¨Ï¥ÎªÌ¿é¤J'A'©Î'a'¡A«hÅã¥Ü¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/ 
-				case 'a': 
+			case 'A':                           /*­Y¨Ï¥ÎªÌ¿é¤J'A'©Î'a'¡A«hÅã¥Ü¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/ 
+			case 'a': 
 			    system("CLS");
 				for(i=0;i<9;i++)
 				{
@@ -110,8 +110,8 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 				system("cls");
 				goto menu;
 				
-                case 'B':
-                case 'b': {
+            case 'B':
+            case 'b': {
                 system("CLS");
                 int numSeats;
                 printf("»Ý­n¦h¤Ö®y¦ì (1-4)? ");
@@ -215,14 +215,18 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                 int valid = 1;
 
                 while (1) {
+                	
                 	// ´£¥Ü¨Ï¥ÎªÌ¿é¤J®y¦ì¿ï¾Ü
                     printf("½Ð¿é¤J®y¦ì¿ï¾Ü¡]¨Ò¦p¡G1-2¡A2-9¡^¡G ");
                     fgets(input, sizeof(input), stdin);
+                    
                     // ¸ÑªR¿é¤Jªº®y¦ì
                     if (sscanf(input, "%d-%d", &row, &col) != 2 || row < 1 || row > 9 || col < 1 || col > 9 || seat[row - 1][col - 1] != '-') {
+                    	
                     	// ¦pªG¿é¤J®æ¦¡¿ù»~©Î®y¦ì¤w³Q¿ï¾Ü¡AÅã¥Ü¿ù»~°T®§
                         printf("µL®Äªº¿é¤J©Î®y¦ì¤w³Q¦û¥Î¡C½Ð¦A¸Õ¤@¦¸¡C\n");
                     } else {
+                    	
                     	// ¦pªG¿é¤J¥¿½T¡A¼Ð°O®y¦ì¬° '@'
                         seat[row - 1][col - 1] = '@';
                         break;
@@ -233,7 +237,8 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                 displaySeats(seat);
                 printf("«ö¥ô·NÁä½T»{±zªº¿ï¾Ü¨Ãªð¦^¥Dµæ³æ¡C\n");
                 getchar();
-
+                
+                // ±N '@' ´À´«¬° '*'
                 for (i = 0; i < 9; i++) {
                     for (j = 0; j < 9; j++) {
                         if (seat[i][j] == '@') {
@@ -245,6 +250,31 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                 system("cls");
                 break;
             }
+            case 'D':                           /*§@·~3 part 6:­Y¨Ï¥ÎªÌ¿é¤J'D'©Î'd'¡A«h¦b¿Ã¹õ¤W¿é¥X¡¥Continue? (y/n)¡¦¸ß°Ý¬O­n­«·s¿é¤J¡H*/
+			case 'd':
+				system("CLS");
+				restart_c:
+				printf("Continue?(y/n)");
+				fflush(stdin);
+				scanf("%c",&c);
+				if(c=='y'||c=='Y')            /*­Y¨Ï¥ÎªÌ¿é¤J¡¥Y¡¦©Î¡¥y¡¦,«h¦^¨ì¥D¿ï³æ*/
+				{
+					system("CLS");
+					goto menu;
+				}
+				if(c=='n' || c=='N')          /*­Y¨Ï¥ÎªÌ¿é¤Jªº¬O¡¥N¡¦©Î¡¥n¡¦¡C«hµ²§ôµ{¦¡¦^¨ì§@·~¨t²Î*/
+				{						
+					return 0;
+				}
+				else                          /*­Y¬O¿é¤J¨ä¥LÁä¡A«h¥X²{¿ù»~°T®§¨Ã­n¨D­«·s¿é¤J*/
+				{
+					printf("¡¶ ¿é¤J¿ù»~,½Ð­«·s¿é¤J!\n");
+					goto restart_c;
+				}
+					
+		    }	
+	system("pause");
+	system("cls");
 
 
             
