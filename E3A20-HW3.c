@@ -186,42 +186,43 @@ int main(void)                                        /*主函數main()從這開始*/
         case 'C':
         case 'c': {
             system("CLS");
-            int row, col;
             char input[5];
-            int valid = 1;
+            int row, col;
 
-            while (1) {
-                // 提示使用者輸入座位選擇
-                printf("請輸入座位選擇（例如：1-2，2-9）： ");
-                fgets(input, sizeof(input), stdin);
-                    
-                // 解析輸入的座位
-                if (sscanf(input, "%d-%d", &row, &col) != 2 || row < 1 || row > 9 || col < 1 || col > 9 || seat[row - 1][col - 1] != '-') {
-                    // 如果輸入格式錯誤或座位已被選擇，顯示錯誤訊息
-                    printf("無效的輸入或座位已被佔用。請再試一次。\n");
-                } else {
-                    // 如果輸入正確，標記座位為 '@'
-                    seat[row - 1][col - 1] = '@';
-                    break;
-                }
+            printf("需要自選幾個座位？（1-4）：");
+            scanf("%s", input);
+            int numSeats = atoi(input);
+
+            while (numSeats < 1 || numSeats > 4) {
+                printf("請輸入有效的座位數量（1-4）：");
+                scanf("%s", input);
+                numSeats = atoi(input);
             }
-                
+
+            for (i = 0; i < numSeats; i++) {
+                printf("請輸入座位選擇（例如：1-2，2-9）：");
+                scanf("%s", input);
+                sscanf(input, "%d-%d", &row, &col);
+
+            while (row < 1 || row > 9 || col < 1 || col > 9 || seat[row - 1][col - 1] != '-') {
+                printf("無效的輸入或座位已被佔用。請再試一次。\n");
+                printf("請輸入座位選擇（例如：1-2，2-9）：");
+                scanf("%s", input);
+                sscanf(input, "%d-%d", &row, &col);
+            }
+
+            seat[row - 1][col - 1] = '@';
+
             // 顯示座位表
+            printf("\n座位表：\n");
             displaySeats(seat);
-            printf("按任意鍵確認您的選擇並返回主菜單。\n");
-            getchar();
-                
-            // 將 '@' 替換為 '*'
-            for (i = 0; i < 9; i++) {
-                for (j = 0; j < 9; j++) {
-                    if (seat[i][j] == '@') {
-                        seat[i][j] = '*';
-                    }
-                }
             }
 
+            printf("\n按任意鍵確認您的選擇並返回主選單。\n");
+            getchar();  // 等待使用者按下任意鍵
+            system("pause");
             system("cls");
-            break;
+            goto menu;
         }
         case 'D':                           /*作業3 part 6:若使用者輸入'D'或'd'，則在螢幕上輸出‘Continue? (y/n)’詢問是要重新輸入？*/
         case 'd':
