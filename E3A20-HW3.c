@@ -1,136 +1,99 @@
-#include<stdio.h>                                     /*§âstdio.h³o­ÓÀÉ®×§t¬A¶i¨Ó*/
-#include<stdlib.h>                                    /*§âstdlib.h³o­ÓÀÉ®×§t¬A¶i¨Ó*/
-#include<string.h>                                    /*§âstring.h³o­ÓÀÉ®×§t¬A¶i¨Ó*/
-#include<conio.h>                                     /*¸ü¤Jconio.h¼ÐÀYÀÉ*/ 
-#include<time.h>                                      /*¨ú±o®É¶¡»P¤é´Á¡B¹ï®É¶¡»P¤é´Á¸ê®Æ¾Þ§@¤Î®æ¦¡¤Æªº¼ÐÀYÀÉ*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <conio.h>
+#include <time.h>
+
+void displaySeats(char seat[][9]) 
+{
+    int i, j;
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 9; j++) {
+            printf("%c", seat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
 int main(void)                                        /*¥D¨ç¼Æmain()±q³o¶}©l*/
 {
-	printf("µ{¦¡³]­p§@·~3\n");                        /*§@·~3 part 1:­Ó¤H­·®æªº«Ê­±*/
-	printf("\n");
-	printf("¢r¢s¢r¢s¡þ¡Ã¢@¡Ä¡þ¡Ã¢@\n");
-	printf("¢s¢r¢s¢r¢j¡@¡@¢j¢v¢v¢v¢v¢@\n");
-	printf("¢r¢s¢r¡þ¢@¡@¡þ¡@¡@¡@¡@¡@¡@¢B\n");
-	printf("¢s¢r¢A¡@¡@¡@¡@¡@¡@¡@¡þ¡@¡@¡@¡^\n");
-	printf("¢r¢s¢j¡@¡@¡@¡@¡@¡@¡@¡@¡´¡@¡@¢j\n");
-	printf("¢s¢r¢j¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¢v¢i\n"); 
-	printf("¢r¢¨¢i¢i¢©¡@¡@¡@¡@¡@¡@ ¢@¡Ä¡Ä¡þ\n");
-	printf("¢s¢i¢i¢i¢i¢i¢©¡@¡@¡@¡@¡@¡@¡@¡þ\n");
-	printf("¢r¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢©\n");
-	printf("¢¨¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢g¢e\n");
-	printf("¢¨¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢i¢g¢e\n");
-	printf("¢i¢«¢¨¢i¢i¢©¢ª¢i¢i¢i¢i¢i¢i¢i¢i¢i¢«¢@\n");
-	printf("¢ª¢¨¢i¢i¢i¢i¡@¢i¢i¢i¢i¢i¢i¢i¢i¢«¡@¡@ ¢@\n");
-	printf("¢r¢i¢i¢i¢i¢i¡@¢i¢i¢i¢i¢i¢i¢«¡@¡@¡@¡@¡@ ¢B\n");
-	printf("¢s¢x¡@¡@¡@¢x¢i¢i¢i¢i¢i¢«¡@¡@¡@¡@¡@¡@¡@¡@¢j\n");
-	printf("¢r¢x¡@¡@¡@¢x¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¡@¢j\n");
-	printf("¢s¢A¡@¡@¡@¢A¡@¡@¡@¡@¡þ¢v¢v¢v¢@¡@¡@¡@¡@ ¢A\n");
-	printf("*¢A¡Ä¡Ä_¡þ¢B¡@¡@¡@¢A¡@¡@¡@¡@¡@ ¢@¡@¡@¡þ¢@\n");
-	printf("¢s¢r¢s¢r¢s¢r¢@ ¡@¡@ ¢@_¡@¡@¡@¡@¡@¢B¡þ¡@¡@¢B\n");
-	printf("¢r¢s¢r¢s¢r¢s¢r ¢@¡Ä¡Ä¡Ä¢@¡@¡@¡@¡@ ¢B¡þ¢v¢@¢B¡þ¢v¢@\n");
-	printf("ùðùðùðùðùðùðùðùðùðùðùðùðùðùð¢@¡@¡@ ¢A¡@ ¡þ¢v¢B¡@\n");
-	system("pause");                                /*¿Ã¹õµe­±¼È°±¡A¨Ãµ¥«Ý¨Ï¥ÎªÌ«ö¥ô·NÁä */
-	system("cls");                                  /*²M°£¿Ã¹õ*/
-	
-	char ps[5]="2024";                                  
-	char en[5];                                   
-	int n=1,r,p,m=0,i,j;
-	char e,t,c;
-	char sw;
-do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½X(±K½X­È¹w³]¬°2024)*/
-		printf("½Ð¿é¤J±K½X:");
-		scanf("%s",en);
-		if(strcmp(ps,en)==0){                       /*­Y±K½Xµ¥©ó¹w³]­È*/ 
-		break;
-		}		
-			else if(n==3){                          /*­Y³sÄò¿ù¤T¦¸¡A«hÅã¥ÜÄµ§i°T®§¨Ãµ²§ôµ{¦¡*/
-			printf("¡¶ ¿ù%d¦¸!½Ð­«·sµn¤J\n",n);
-			printf("\a");
-				return 0;
-				}
-			else{			
-			printf("¡¶ ¿ù%d¦¸!\n",n);
-			n++;
-			}
-				
-	}while(n<=3);	 
+    char ps[5] = "2024";                                  
+    char en[5];                                   
+    int n = 1, r, p, m = 0, i, j;
+    char e, t, c;
+    char sw;
+    do {                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½X(±K½X­È¹w³]¬°2024)*/
+        printf("½Ð¿é¤J±K½X:");
+        scanf("%s", en);
+        if (strcmp(ps, en) == 0) {                       /*­Y±K½Xµ¥©ó¹w³]­È*/ 
+            break;
+        } else if (n == 3) {                          /*­Y³sÄò¿ù¤T¦¸¡A«hÅã¥ÜÄµ§i°T®§¨Ãµ²§ôµ{¦¡*/
+            printf("¡¶ ¿ù%d¦¸!½Ð­«·sµn¤J\n", n);
+            printf("\a");
+            return 0;
+        } else {            
+            printf("¡¶ ¿ù%d¦¸!\n", n);
+            n++;
+        }
+    } while (n <= 3);     
 
-			system("CLS");                          /*§@·~3 part 2:²M°£¿Ã¹õ¡A¿Ã¹õ¥X²{¥D¿ï³æ*/
-			menu:                              
-			puts("* * * * *[¿ï ¦ì ¨t ²Î]* * * * *");  
-			puts("*       a. Åã¥Ü²{¦³®y¦ì       *");
-			puts("*       b. ¹q¸£±Æ¦ì           *");
-			puts("*       c. ¦Û¥D¿ï¦ì           *");
-			puts("*       d. ¿ï¦ìµ²§ô           *");
-			puts("* * * * * * * * * * * * * * * *");
-			printf("½Ð¿é¤J¤@­Ó¿ï¶µ:");              /*­n¨D¨Ï¥ÎªÌ¿é¤J¤@­Ó¦r¤¸(¦p¥D¿ï³æ©Ò¥Ü)*/
-			fflush(stdin);
-			scanf("%c",&sw);
-			
-			void displaySeats(char seat[][9]) 
-			{
-                int i, j;
-                for (i = 0; i < 9; i++) {
-                    for (j = 0; j < 9; j++) {
-                        printf("%c", seat[i][j]);
-            }
+    system("CLS");                          /*§@·~3 part 2:²M°£¿Ã¹õ¡A¿Ã¹õ¥X²{¥D¿ï³æ*/
+    menu:                              
+    puts("* * * * *[¿ï ¦ì ¨t ²Î]* * * * *");  
+    puts("*       a. Åã¥Ü²{¦³®y¦ì       *");
+    puts("*       b. ¹q¸£±Æ¦ì           *");
+    puts("*       c. ¦Û¥D¿ï¦ì           *");
+    puts("*       d. ¿ï¦ìµ²§ô           *");
+    puts("* * * * * * * * * * * * * * * *");
+    printf("½Ð¿é¤J¤@­Ó¿ï¶µ:");              /*­n¨D¨Ï¥ÎªÌ¿é¤J¤@­Ó¦r¤¸(¦p¥D¿ï³æ©Ò¥Ü)*/
+    fflush(stdin);
+    scanf("%c", &sw);
+        
+    /*§@·~3 part 3:¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/
+    char seat[9][9];                       
+    for (i = 0; i < 9; i++) {               /*Åã¥Ü9*9ªº¹w³]®y¦ì*/ 
+        for (j = 0; j < 9; j++) {
+            seat[i][j] = '-';    
+        }
+    } 
+    for (i = 0; i < 9; i++) {               /*¥ý°²³]¹w©w®y¦ì¬°²Ä¤@¦C¥þ³¡¥[¤W²Ä¤G¦C²Ä¤@­Ó*/
+        seat[0][i] = '*'; 
+    }
+    seat[1][0] = '*';
+
+    for (i = 0; i < 9; i++) {
+        for (j = 0; j < 9; j++) {           /*¨úÀH¾÷ÅÜ¼Æµ¹m©Mk,¨Ã¥æ´«seat[i][j]©Mseat[m][k]*/ 
+            int m = rand() % 9, k = rand() % 9;
+            char tmp;
+            tmp = seat[i][j];
+            seat[i][j] = seat[m][k];
+            seat[m][k] = tmp; 
+        }    
+    }
+
+    switch (sw) {
+        case 'A':                           /*­Y¨Ï¥ÎªÌ¿é¤J'A'©Î'a'¡A«hÅã¥Ü¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/ 
+        case 'a': 
+            system("CLS");
+            for (i = 0; i < 9; i++) {
+                for (j = 0; j < 9; j++) {
+                    printf("%c", seat[i][j]);     
+                }
                 printf("\n");
-            }
-            }
-
-			
-			
-			                                        /*§@·~3 part 3:¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/
-            char seat [9][9];                       
-			for(i=0;i<9;i++)                        /*Åã¥Ü9*9ªº¹w³]®y¦ì*/ 
-			{
-				for(j=0;j<9;j++)
-				{
-					seat[i][j]='-';	 
-				}
-					
-			} 
-			for(i=0;i<9;i++)                        /*¥ý°²³]¹w©w®y¦ì¬°²Ä¤@¦C¥þ³¡¥[¤W²Ä¤G¦C²Ä¤@­Ó*/
-			{
-				seat[0][i]='*'; 
-			}
-			seat[1][0]='*';
-	        
-	        for(i=0;i<9;i++)
-	        {
-	            
-	            for(j=0;j<9;j++)                    /*¨úÀH¾÷ÅÜ¼Æµ¹m©Mk,¨Ã¥æ´«seat[i][j]©Mseat[m][k]*/ 
-				{
-					int m=rand()%9,k=rand()%9;
-					char tmp;
-					tmp=seat[i][j];
-					seat[i][j]=seat[m][k];
-					seat[m][k]=tmp; 
-				}	
-			}
-			switch(sw)
-			{
-			case 'A':                           /*­Y¨Ï¥ÎªÌ¿é¤J'A'©Î'a'¡A«hÅã¥Ü¦b9*9ªº¹w³]®y¦ì¤¤²£¥Í10­Ó³Q¹w­qªº¶Ã¼Æ®y¦ì*/ 
-			case 'a': 
-			    system("CLS");
-				for(i=0;i<9;i++)
-				{
-					for(j=0;j<9;j++)
-					{
-						printf("%c",seat[i][j]);	 
-					}
-					printf("\n");
-				} 
-				system("pause");                    /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/
-				system("cls");
-				goto menu;
-				
-            case 'B':
-            case 'b': {
+            } 
+            system("pause");                    /*¨Ï¥ÎªÌ«ö¤U¥ô¦óÁä«h²M°£¿Ã¹õ¡A¨Ã¦^¨ì¥D¿ï³æ*/
+            system("cls");
+            goto menu;
+                
+        case 'B':
+        case 'b': {
+            int backToMenu = 0;
+            while (!backToMenu) {
                 system("CLS");
                 int numSeats;
                 printf("»Ý­n¦h¤Ö®y¦ì (1-4)? ");
                 scanf("%d", &numSeats);
-                getchar(); // ¦Y±¼´«¦æ²Å¸¹
+                getchar(); 
 
                 if (numSeats < 1 || numSeats > 4) {
                     printf("µL®Äªº®y¦ì¼Æ¶q¡Cªð¦^¥Dµæ³æ\n");
@@ -142,7 +105,6 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                 int found = 0;
                 int startRow = -1, startCol = -1;
 
-                // ¹Á¸Õ§ä¨ì¦X¾Aªº®y¦ì¦w±Æ
                 for (i = 0; i < 9 && !found; i++) {
                     for (j = 0; j < 9 - numSeats + 1 && !found; j++) {
                         int k;
@@ -156,7 +118,7 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                         }
                     }
                 }
-                // ¦pªG¨S§ä¨ì¡A¥B»Ý¨D¬O4­Ó®y¦ì¡A¹Á¸Õ§ä¬Û¾Fªº¨â±Æ 
+                
                 if (!found && numSeats == 4) {
                     for (i = 0; i < 8 && !found; i++) {
                         for (j = 0; j < 9 - 2 + 1 && !found; j++) {
@@ -169,7 +131,7 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                         }
                     }
                 }
-                // §ä¨ì¦X¾Aªº®y¦ì 
+                
                 if (found) {
                     if (numSeats < 4) {
                         for (i = 0; i < numSeats; i++) {
@@ -186,9 +148,8 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                     char response;
                     printf("§A¹ï³o­Ó¦w±Æº¡·N¶Ü¡H (y/n): ");
                     response = getchar();
-                    getchar(); // ¦Y±¼´«¦æ²Å¸¹
+                    getchar();
                     
-                    // ¦pªGº¡·N¡A±N '@' ´À´«¬° '*' 
                     if (response == 'y' || response == 'Y') {
                         if (numSeats < 4) {
                             for (i = 0; i < numSeats; i++) {
@@ -200,6 +161,7 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
                             seat[startRow + 1][startCol] = '*';
                             seat[startRow + 1][startCol + 1] = '*';
                         }
+                        backToMenu = 1;
                     } else {
                         if (numSeats < 4) {
                             for (i = 0; i < numSeats; i++) {
@@ -218,78 +180,69 @@ do{                                                 /*­n¨D¨Ï¥ÎªÌ¿é¤J4­Ó¼Æ¦rªº±K½
 
                 system("pause");
                 system("cls");
-                break;
             }
-            
-            case 'C':
-            case 'c': {
-                system("CLS");
-                int row, col;
-                char input[5];
-                int valid = 1;
+            goto menu;
+        }   
+        case 'C':
+        case 'c': {
+            system("CLS");
+            int row, col;
+            char input[5];
+            int valid = 1;
 
-                while (1) {
-                	
-                	// ´£¥Ü¨Ï¥ÎªÌ¿é¤J®y¦ì¿ï¾Ü
-                    printf("½Ð¿é¤J®y¦ì¿ï¾Ü¡]¨Ò¦p¡G1-2¡A2-9¡^¡G ");
-                    fgets(input, sizeof(input), stdin);
+            while (1) {
+                // ´£¥Ü¨Ï¥ÎªÌ¿é¤J®y¦ì¿ï¾Ü
+                printf("½Ð¿é¤J®y¦ì¿ï¾Ü¡]¨Ò¦p¡G1-2¡A2-9¡^¡G ");
+                fgets(input, sizeof(input), stdin);
                     
-                    // ¸ÑªR¿é¤Jªº®y¦ì
-                    if (sscanf(input, "%d-%d", &row, &col) != 2 || row < 1 || row > 9 || col < 1 || col > 9 || seat[row - 1][col - 1] != '-') {
-                    	
-                    	// ¦pªG¿é¤J®æ¦¡¿ù»~©Î®y¦ì¤w³Q¿ï¾Ü¡AÅã¥Ü¿ù»~°T®§
-                        printf("µL®Äªº¿é¤J©Î®y¦ì¤w³Q¦û¥Î¡C½Ð¦A¸Õ¤@¦¸¡C\n");
-                    } else {
-                    	
-                    	// ¦pªG¿é¤J¥¿½T¡A¼Ð°O®y¦ì¬° '@'
-                        seat[row - 1][col - 1] = '@';
-                        break;
-                    }
+                // ¸ÑªR¿é¤Jªº®y¦ì
+                if (sscanf(input, "%d-%d", &row, &col) != 2 || row < 1 || row > 9 || col < 1 || col > 9 || seat[row - 1][col - 1] != '-') {
+                    // ¦pªG¿é¤J®æ¦¡¿ù»~©Î®y¦ì¤w³Q¿ï¾Ü¡AÅã¥Ü¿ù»~°T®§
+                    printf("µL®Äªº¿é¤J©Î®y¦ì¤w³Q¦û¥Î¡C½Ð¦A¸Õ¤@¦¸¡C\n");
+                } else {
+                    // ¦pªG¿é¤J¥¿½T¡A¼Ð°O®y¦ì¬° '@'
+                    seat[row - 1][col - 1] = '@';
+                    break;
                 }
-                
-                 // Åã¥Ü®y¦ìªí
-                displaySeats(seat);
-                printf("«ö¥ô·NÁä½T»{±zªº¿ï¾Ü¨Ãªð¦^¥Dµæ³æ¡C\n");
-                getchar();
-                
-                // ±N '@' ´À´«¬° '*'
-                for (i = 0; i < 9; i++) {
-                    for (j = 0; j < 9; j++) {
-                        if (seat[i][j] == '@') {
-                            seat[i][j] = '*';
-                        }
-                    }
-                }
-
-                system("cls");
-                break;
             }
-            case 'D':                           /*§@·~3 part 6:­Y¨Ï¥ÎªÌ¿é¤J'D'©Î'd'¡A«h¦b¿Ã¹õ¤W¿é¥X¡¥Continue? (y/n)¡¦¸ß°Ý¬O­n­«·s¿é¤J¡H*/
-			case 'd':
-				system("CLS");
-				restart_c:
-				printf("Continue?(y/n)");
-				fflush(stdin);
-				scanf("%c",&c);
-				if(c=='y'||c=='Y')            /*­Y¨Ï¥ÎªÌ¿é¤J¡¥Y¡¦©Î¡¥y¡¦,«h¦^¨ì¥D¿ï³æ*/
-				{
-					system("CLS");
-					goto menu;
-				}
-				if(c=='n' || c=='N')          /*­Y¨Ï¥ÎªÌ¿é¤Jªº¬O¡¥N¡¦©Î¡¥n¡¦¡C«hµ²§ôµ{¦¡¦^¨ì§@·~¨t²Î*/
-				{						
-					return 0;
-				}
-				else                          /*­Y¬O¿é¤J¨ä¥LÁä¡A«h¥X²{¿ù»~°T®§¨Ã­n¨D­«·s¿é¤J*/
-				{
-					printf("¡¶ ¿é¤J¿ù»~,½Ð­«·s¿é¤J!\n");
-					goto restart_c;
-				}
-					
-		    }	
-	system("pause");
-	system("cls");
-	return 0;                                    /*¨ç¼Æ¦^¶Ç¾ã¼Æ0,¦¹¼Æ­È¥Ñ¨t²Î±µ¦¬*/ 
-} 
+                
+            // Åã¥Ü®y¦ìªí
+            displaySeats(seat);
+            printf("«ö¥ô·NÁä½T»{±zªº¿ï¾Ü¨Ãªð¦^¥Dµæ³æ¡C\n");
+            getchar();
+                
+            // ±N '@' ´À´«¬° '*'
+            for (i = 0; i < 9; i++) {
+                for (j = 0; j < 9; j++) {
+                    if (seat[i][j] == '@') {
+                        seat[i][j] = '*';
+                    }
+                }
+            }
 
-            
+            system("cls");
+            break;
+        }
+        case 'D':                           /*§@·~3 part 6:­Y¨Ï¥ÎªÌ¿é¤J'D'©Î'd'¡A«h¦b¿Ã¹õ¤W¿é¥X¡¥Continue? (y/n)¡¦¸ß°Ý¬O­n­«·s¿é¤J¡H*/
+        case 'd':
+            system("CLS");
+            restart_c:
+            printf("Continue?(y/n)");
+            fflush(stdin);
+            scanf("%c", &c);
+            if (c == 'y' || c == 'Y') {            /*­Y¨Ï¥ÎªÌ¿é¤J¡¥Y¡¦©Î¡¥y¡¦,«h¦^¨ì¥D¿ï³æ*/
+                system("CLS");
+                goto menu;
+            }
+            if (c == 'n' || c == 'N') {          /*­Y¨Ï¥ÎªÌ¿é¤Jªº¬O¡¥N¡¦©Î¡¥n¡¦¡C«hµ²§ôµ{¦¡¦^¨ì§@·~¨t²Î*/
+                return 0;
+            } else {                          /*­Y¬O¿é¤J¨ä¥LÁä¡A«h¥X²{¿ù»~°T®§¨Ã­n¨D­«·s¿é¤J*/
+                printf("¡¶ ¿é¤J¿ù»~,½Ð­«·s¿é¤J!\n");
+                goto restart_c;
+            }
+    }    
+    system("pause");
+    system("cls");
+    return 0;                                    /*¨ç¼Æ¦^¶Ç¾ã¼Æ0,¦¹¼Æ­È¥Ñ¨t²Î±µ¦¬*/ 
+}
+
