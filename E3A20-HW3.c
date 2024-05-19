@@ -18,6 +18,7 @@ void displaySeats(char seat[][9])
 int main(void)                                        /*主函數main()從這開始*/
 {
 	
+	
 	printf("程式設計作業3\n");                        /*作業3 part 1:個人風格的封面*/
 	printf("\n");
 	printf("┴┬┴┬／￣＼＿／￣＼\n");
