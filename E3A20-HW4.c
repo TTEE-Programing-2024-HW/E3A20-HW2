@@ -207,6 +207,28 @@ int main(void)                                        /*主函數main()從這開始*/
         system("pause");
         break;
         
+        
+        case'c':             /*當使用者輸入‘c’，則清除螢幕，並在螢幕上出現提示訊息，要求輸入要搜尋的姓名*/
+        case'C':
+        system("CLS");
+        printf("輸入姓名:");
+        gets(find);
+        for(i=0;i<n;i++)
+        {
+            ok=strcmp(find,name[i]);
+            if(ok==0)
+            {
+                printf("姓名%6s  學號%6s   數學%3d   物理%3d   英文%3d  平均%4.1f\n",name[i],number[i],math[i],sic[i],eng[i],(float)(math[i]+sic[i]+eng[i])/3);
+                break;
+            }
+        }
+        if(ok!=0)
+        {
+            printf("資料無\n\a");
+        }
+        
+        system("pause");
+        break;
     
         
         
