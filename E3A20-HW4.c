@@ -188,6 +188,25 @@ int main(void)                                        /*主函數main()從這開始*/
         break;
         
         
+        case'b':            /*當使用者輸入’b’，則清除螢幕，並在螢幕上顯示所有學生的姓名、學號、各科成績，及個人的平均成績(取至一位小數)*/
+        case'B':
+        system("CLS");
+        if(n==0)
+        {
+            printf("請執行a!");
+            system("pause");
+            break;
+        }
+    
+    
+        for(i=0;i<n;i++)
+        {
+            printf("姓名%6s  學號%6s   數學%3d   物理%3d   英文%3d  平均%4.1f\n",name[i],number[i],math[i],sic[i],eng[i],avg[i]);
+        }
+        
+        system("pause");
+        break;
+        
     
         
         
