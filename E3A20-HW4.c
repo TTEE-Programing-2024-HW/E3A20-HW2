@@ -282,7 +282,38 @@ int main(void)                                        /*主函數main()從這開始*/
         system("pause");
         break;
         
+        case'e':          /*使用者若輸入‘e’，在螢幕上輸出‘確定離開？(y/n)’如果使用者輸入‘n’,則回到主選單*/
+        case'E':
+        while(1)     
+		{
+            system("cls");
+            printf("程式結束?(y/n)");
+            fflush(stdin);
+            sw=getche();
+            if(sw=='y'||sw=='Y')
+            {
+                printf("\n程式結束\n");
+                system("pause");
+                return 0;                          /*如果使用者輸入‘y’，則結束程式回到作業系統。若是其他鍵，再問一次*/
+            }
+                else if(sw=='n'||sw=='N')
+                {
+                    break;
+                }
+                    else
+                    {
+                        printf("\n請輸入(y/n)\n");
+                        system("pause");
+                        continue;
+                    }
+        }
+                    break;  
+        } 
+    }
         
+        system("pause");
+        return 0;
+}
         
         
         
