@@ -67,4 +67,15 @@ int main(void)                                        /*主函數main()從這開始*/
             return 0;
         }
     }
-    
+    while(1)
+    {
+        system("cls");                                 /*清除螢幕，螢幕出現主選單*/
+        printf("------------------------------\n");
+        printf("|  a. 輸入學生成績          |\n");
+        printf("|  b. 顯示學生成績          |\n");
+        printf("|  c. 搜尋學生成績          |\n");
+        printf("|  d. 成績排名              |\n");
+        printf("|  e. 系統結束              |\n");
+        printf("------------------------------\n");
+        fflush(stdin);
+        sw=getche();
