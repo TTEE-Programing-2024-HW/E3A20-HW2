@@ -79,3 +79,119 @@ int main(void)                                        /*主函數main()從這開始*/
         printf("------------------------------\n");
         fflush(stdin);
         sw=getche();
+        
+        switch(sw)
+        { 
+            case'a':                              /*使用者若輸入‘a’，則清除螢幕，出現提示字句，要求輸入n（5~10）的整數。依序讀入n筆學生姓名、學號（6位整數）、數學、物理、英文的成績（0~100分）。全部輸入完畢後，回到主選單。輸入過程中，任一步驟發生錯誤，立刻出現錯誤訊息並要求改正。*/
+            case'A':
+            system("CLS");
+            
+            while(1)
+            {
+                printf("輸入5到10的整數");
+                fflush(stdin);
+                
+                scanf("%d",&n);
+                if(n>=5&&n<=10)
+                {
+                    break;
+                }
+                    else
+                    {
+                        system("CLS");
+                        printf("錯誤請改正\n\a"); 
+                    }
+            }
+            
+            for(i=0;i<n;i++)
+            {
+                system("CLS");
+                puts("輸入學生姓名");
+                fflush(stdin);
+                gets(name[i]);
+     
+            while(1)
+            { 
+                puts("輸入學號");
+                fflush(stdin);
+                
+                gets(number[i]);
+                count=strlen(number[i]);
+                if(count==6)
+                {
+                    break;
+                }
+                    else
+                    {
+                        system("CLS");
+                        printf("錯誤請改正\n\a");
+                    } 
+            }
+     
+            while(1)
+            {
+                puts("輸入數學成績");
+                fflush(stdin);
+                
+                scanf("%d",&math[i]);
+                if(math[i]>=0&&math[i]<=100)
+                {
+                    break;
+                }
+                    else
+                    {
+                        system("CLS");
+                        printf("錯誤請改正\n\a");
+                    }
+            }
+     
+            while(1)
+            {
+                puts("輸入物理成績");
+                fflush(stdin);
+                
+                scanf("%d",&sic[i]);
+                if(sic[i]>=0&&sic[i]<=100)
+                {
+                    break;
+                }
+                    else
+                    {
+                        system("CLS");
+                        printf("錯誤請改正\n\a");
+                    }
+            }
+     
+            while(1)
+            {
+                puts("請輸入英文成績");
+                fflush(stdin);
+                
+                scanf("%d",&eng[i]);
+                if(eng[i]>=0&&eng[i]<=100)
+                {
+                    break;
+                }
+                    else
+                    {
+                        system("CLS");
+                        printf("錯誤請改正\n\a");
+                    }
+            }
+            
+            
+            avg[i]=(float)((math[i]+sic[i]+eng[i])/3);
+            }
+    
+    
+        system("pause");
+        break;
+        
+        
+    
+        
+        
+        
+        
+        
+        
