@@ -231,6 +231,57 @@ int main(void)                                        /*主函數main()從這開始*/
         break;
     
         
+        case'd':      /*用者若輸入‘d’，則清除螢幕，在螢幕上依平均成績的高低順序列出學生的姓名、學號及平均成績*/
+        case'D':
+        system("CLS");
+        
+        for(i=0;i<n;i++)
+        {
+            avg1[i]=avg[i];
+            strcpy(name1[i],name[i]);
+            strcpy(number1[i],number[i]);
+            math1[i]=math[i];
+            sic1[i]=sic[i];
+            eng1[i]=eng[i];
+        }
+        for(i=0;i<n;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                if(avg[j]<avg[j+1])
+                {
+                    v=avg[j];
+                    avg[j]=avg[j+1];
+                    avg[j+1]=v;
+                    v=avg1[j];
+                    avg1[j]=avg1[j+1];
+                    avg1[j+1]=v;
+                    strcpy(h,name1[j]);
+                    strcpy(name1[j],name1[j+1]);
+                    strcpy(name1[j+1],h);
+                    strcpy(r,number1[j]);
+                    strcpy(number1[j],number1[j+1]);
+                    strcpy(number1[j+1],r);
+                    k=math1[j];
+                    math1[j]=math1[j+1];
+                    math1[j+1]=k;
+                    u=sic1[j];
+                    sic1[j]=sic1[j+1];
+                    sic1[j+1]=u;
+                    l=eng1[j];
+                    eng1[j]=eng1[j+1];
+                    eng1[j+1]=l;
+                }
+            }
+        }
+        for(i=0;i<n;i++)
+        {
+            printf("姓名%6s  學號%6s   數學%3d   物理%3d   英文%3d  平均%4.1f---\n",name1[i],number1[i],math1[i],sic1[i],eng1[i],avg1[i]);
+        } 
+        
+        system("pause");
+        break;
+        
         
         
         
